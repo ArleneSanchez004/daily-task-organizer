@@ -6,23 +6,30 @@ currentDay.textContent = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
 console.log(moment().hour());
 
 var h = moment().hour();
-var hours = ["9", "10", "11", "12", "1", "2", "3", "4", "5"];
+var hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
 $(".taskBlock").each(function (i, item) {
     if (h === hours[i]) {
-        this.addClass("present");
+        $(this).addClass("present");
     }
 })
-// $(".taskBlock").each(function () {
-//     if (h <= hours) {
-//         $(".taskBlock").addClass("past");
-//         console.log("past");
-//     }
-// });
+$(".taskBlock").each(function (i, item) {
+    if (h < hours[i]) {
+        $(this).addClass("past");
+    }
+})
+$(".taskBlock").each(function (i, item) {
+    if (h > hours[i]) {
+        $(this).addClass("future");
+    }
+})
 
-// $(".taskBlock").each(function () {
-//     if (h >= hours) {
-//         $(".taskBlock").addClass("future");
-//     }
-// });
+//when .taskBlock is clicked, input field is available
+$(".taskBlock").click(function(){
+    $(this).prop(enabled);
+
+})
+
+
+
 
